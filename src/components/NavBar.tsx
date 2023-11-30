@@ -5,9 +5,13 @@ import {Icons} from './Icons';
 import NavItems from "@/components/NavItems";
 import {buttonVariants} from "@/components/ui/button";
 import Cart from "@/components/Cart";
+import {getServerSideUser} from "@/lib/payload-utils";
+import {cookies} from "next/headers";
+import UserAccountNav from "@/components/UserAccountNav";
 
-const NavBar = () => {
-    const user = null;
+const NavBar = async () => {
+    const nextCookies = cookies();
+    const {user} = await getServerSideUser(nextCookies);
 
     return (
         <div className='bg-white sticky z-50 top-0 inset-x-0 h-16'>
@@ -40,7 +44,9 @@ const NavBar = () => {
                                         : <span className='h-6 w-px bg-gray-200' aria-hidden={'true'}></span>
                                     }
 
-                                    {user ? <p></p>
+                                    {user ? (
+                                            <UserAccountNav user={user}/>
+                                        )
                                         : <Link
                                             href='/sign-up'
                                             className={buttonVariants({variant: 'ghost'})}
@@ -64,7 +70,7 @@ const NavBar = () => {
                                     }
 
                                     <div className='ml-4 flow-root lg:ml-6'>
-                                        <Cart />
+                                        <Cart/>
                                     </div>
                                 </div>
                             </div>
