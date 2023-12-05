@@ -39,3 +39,7 @@ next-env.d.ts
 /.idea/*
 
 .env
+
+src/media/*
+src/product_files/*
+src/product_files
