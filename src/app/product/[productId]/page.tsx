@@ -69,7 +69,7 @@ const Page = async ({params}: PageProps) => {
                                                 fill='currentColor'
                                                 aria-hidden='true'
                                                 className='ml-2 h-5 w-5 flex-shrink-0 text-gray-300'>
-                                                <path d='M5.555 17.776l8-16 .894.448-8 16-.894-.448z' />
+                                                <path d='M5.555 17.776l8-16 .894.448-8 16-.894-.448z'/>
                                             </svg>
                                         )}
                                     </div>
@@ -109,16 +109,16 @@ const Page = async ({params}: PageProps) => {
                         </section>
                     </div>
 
-                    <div className='mt-10 lg:col-start-2 lg:row-start-2 lg:mt-0 lg:self-center'>
+                    <div className='mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center'>
                         <div className='aspect-square rounded-lg'>
-                            <ImageSlider urls={validUrls} />
+                            <ImageSlider urls={validUrls}/>
                         </div>
                     </div>
 
                     <div className='mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start'>
                         <div>
                             <div className='mt-10'>
-                                <AddToCartButton />
+                                <AddToCartButton product={product}/>
                             </div>
                             <div className='mt-6 text-center'>
                                 <div className='group inline-flex text-sm text-medium'>
@@ -137,7 +137,7 @@ const Page = async ({params}: PageProps) => {
             </div>
             <ProductReel
                 href='/products'
-                query={{ category: product.category, limit: 4 }}
+                query={{category: product.category, limit: 4}}
                 title={`Similar ${label}`}
                 subtitle={`Browse similar high-quality ${label} just like '${product.name}'`}
             />
