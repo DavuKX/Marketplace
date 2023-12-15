@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
     port: 465,
     auth: {
         user: "resend",
-        pass: process.env.RESEND_API_KEY
+        pass: process.env.NEXT_PUBLIC_RESEND_API_KEY
     }
 })
 
@@ -32,7 +32,7 @@ interface Args {
 }
 
 export const getPayloadClient =  async ({initOptions}: Args = {}): Promise<Payload> => {
-    if (!process.env.PAYLOAD_SECRET) {
+    if (!process.env.NEXT_PUBLIC_PAYLOAD_SECRET) {
         throw new Error('PAYLOAD_SECRET is missing');
     }
 
@@ -47,7 +47,7 @@ export const getPayloadClient =  async ({initOptions}: Args = {}): Promise<Paylo
                 fromAddress: 'onboarding@resend.dev',
                 fromName: 'Digital Marketplace'
             },
-            secret: process.env.PAYLOAD_SECRET,
+            secret: process.env.NEXT_PUBLIC_PAYLOAD_SECRET,
             local: !initOptions?.express,
             ...(initOptions || {})
         });
