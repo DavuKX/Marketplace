@@ -23,11 +23,11 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          echo "NEXT_PUBLIC_PAYLOAD_SECRET=${{ vars.NEXT_PUBLIC_PAYLOAD_SECRET }}" > .env.production
-          echo "NEXT_PUBLIC_MONGODB_URL=${{ vars.NEXT_PUBLIC_MONGODB_URL }}" >> .env.production
-          echo "NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }}" >> .env.production
-          echo "NEXT_PUBLIC_STRIPE_SECRET_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_SECRET_KEY }}" >> .env.production
-          echo "NEXT_PUBLIC_RESEND_API_KEY=${{ secrets.NEXT_PUBLIC_RESEND_API_KEY }}" >> .env.production
+          echo "NEXT_PUBLIC_PAYLOAD_SECRET=${{ vars.NEXT_PUBLIC_PAYLOAD_SECRET }}" > .env
+          echo "NEXT_PUBLIC_MONGODB_URL=${{ vars.NEXT_PUBLIC_MONGODB_URL }}" >> .env
+          echo "NEXT_PUBLIC_SERVER_URL=${{ secrets.NEXT_PUBLIC_SERVER_URL }}" >> .env
+          echo "NEXT_PUBLIC_STRIPE_SECRET_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_SECRET_KEY }}" >> .env
+          echo "NEXT_PUBLIC_RESEND_API_KEY=${{ secrets.NEXT_PUBLIC_RESEND_API_KEY }}" >> .env
 
       - name: npm install, build, and test
         run: |
